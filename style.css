@@ -1,0 +1,84 @@
+/* Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --tertiary-color: green;
+    --border-radius: 8px;
+    --font-family: "Helvetica Neue", sans-serif;
+}
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+}
+
+/* Stopwatch Styles */
+.stopwatch {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px;
+    margin: 3rem auto;
+    padding: 3rem;
+}
+
+.display {
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display span {
+    margin: 0 0.5rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+button {
+    border: none;
+    border-radius: var(--border-radius);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+}
+
+.start-btn {
+    background-color: var(--primary-color);
+}
+
+.stop-btn {
+    background-color: var(--secondary-color);
+}
+
+.reset-btn{
+    background-color: var(--tertiary-color) ;
+}
+
+button:hover {
+    opacity: 0.8;
+}

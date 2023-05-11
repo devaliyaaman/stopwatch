@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="stopwatch">
+        <div class="display">
+            <span class="hours" id="hours">00</span>:
+            <span class="minutes" id="minutes">00</span>:
+            <span class="seconds" id="seconds">00</span>:
+            <span class="miliseconds" id="miliseconds">00</span>
+        </div>
+        <div class="buttons">
+            <button id="start" class="start-btn">Start</button>
+            <button id="stop" class="stop-btn">Stop</button>
+            <button id="reset" class="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let hours = 00;
+        let minutes = 00;
+        let seconds = 00;
+        let miliseconds = 00;
+
+        document.getElementById("start").addEventListener('click', () => {
+            timer = true;
+            displayTimer();
+        });
+
+        document.getElementById("stop").addEventListener('click', () => {
+            timer = false;
+
+        });
+
+        document.getElementById("reset").addEventListener('click', () => {
+            timer = false;
+
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            miliseconds = 0;
+
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById('seconds').innerHTML = "00";
+            document.getElementById("miliseconds").innerHTML = "00";
+
+        });
+
+        function displayTimer() {
+            if (timer) {
+                miliseconds++;
+
+                if (miliseconds == 100) {
+                    miliseconds = 0;
+                    seconds++;
+                }
+                if (seconds == 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+                if (minutes == 60) {
+                    minutes = 0;
+                    seconds = 0;
+                    hours++;
+                }
+
+                let h = hours;
+                let m = minutes;
+                let s = seconds;
+                let ms = miliseconds;
+
+                if (hours < 10) {
+                    h = "0" + h;
+                }
+
+                if (minutes < 10) {
+                    m = "0" + m;
+                }
+
+                if (seconds < 10) {
+                    s = "0" + s;
+                }
+
+                if (miliseconds < 10) {
+                    ms = "0" + ms;
+                }
+
+                document.getElementById("hours").innerHTML = h;
+                document.getElementById("minutes").innerHTML = m;
+                document.getElementById("seconds").innerHTML = s;
+                document.getElementById("miliseconds").innerHTML = ms;
+
+                setTimeout(displayTimer,1);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
